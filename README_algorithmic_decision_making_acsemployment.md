@@ -1,8 +1,8 @@
 # Algorithmic Patriarchy in Predictive Employment Models
 
-This repository contains a GitHub-ready notebook that uses the Folktables ACSEmployment dataset to demonstrate how predictive systems can reproduce gendered labor-market patterns.
+This repository contains notebooks that uses the Folktables ACSEmployment dataset to demonstrate how predictive systems can reproduce gendered labor-market patterns.
 
-The notebook is designed for presentations, teaching, and ethical AI discussion. It uses:
+It uses:
 
 - Public census-derived data from the Folktables ACSEmployment task
 - A supervised machine learning model to predict employment status
