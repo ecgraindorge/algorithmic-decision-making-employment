@@ -22,7 +22,7 @@ This project uses the **American Community Survey Public Use Microdata Sample (A
 
 In this project, the target variable is employment status. The analysis compares models that include and exclude sex as a feature, while retaining sex labels for post-model auditing.
 
-The dataset is not a hiring dataset and does not represent job applicants or actual hiring decisions. Instead, it is used as a labor-market prediction setting to examine how models can encode social and structural patterns.
+Please note that this dataset is not a hiring dataset and does not represent job applicants or actual hiring decisions. Instead, it is used as a labor-market prediction setting to examine how models can encode social and structural patterns.
 
 ---
 
@@ -40,17 +40,17 @@ biased-algorithmic-decision-making-hiring/
 │   ├── 02_model_training_and_group_audit.ipynb
 │   ├── 03_shap_explainability.ipynb
 │   ├── 04_lime_local_explanations.ipynb
-│   └── 05_poster_visualizations.ipynb
+│   └── 05_visualizations.ipynb
 │
 ├── figures/
-│   ├── actual_employment_by_sex_transparent.png
-│   ├── actual_vs_predicted_by_sex_transparent.png
-│   ├── predicted_employment_with_vs_without_sex_transparent.png
-│   ├── top_14_shap_features_model_includes_sex_transparent.png
-│   ├── shap_beeswarm_model_includes_sex_wide_transparent.png
-│   ├── top_11_shap_features_model_excludes_sex_transparent.png
-│   ├── shap_beeswarm_model_excludes_sex_top11_transparent.png
-│   └── lime_local_explanation_poster_clean.png
+│   ├── actual_employment_by_sex.png
+│   ├── actual_vs_predicted_by_sex.png
+│   ├── predicted_employment_with_vs_without_sex.png
+│   ├── top_14_shap_features_model_includes_sex.png
+│   ├── shap_beeswarm_model_includes_sex_wide.png
+│   ├── top_11_shap_features_model_excludes_sex.png
+│   ├── shap_beeswarm_model_excludes_sex_top11.png
+│   └── lime_local_explanation.png
 │
 ├── poster/
 │   └── conference_poster.pptx
@@ -92,11 +92,11 @@ Uses SHAP to examine global model behavior. This notebook includes top-feature i
 
 Uses LIME to explain one individual prediction. This notebook shows which features push a specific prediction toward “employed” or “not employed.”
 
-### 5. Poster Visualizations
+### 5. Visualizations
 
-`05_poster_visualizations.ipynb`
+`05_visualizations.ipynb`
 
-Creates poster-ready versions of the final visuals using a consistent color palette, white text, dark notebook previews, and transparent image exports for PowerPoint or poster design.
+Visualizations used for presenting. Please note that they are formatted in the notebook to be visible on a dark background.
 
 ---
 
@@ -109,7 +109,7 @@ This project uses:
 - Group-level prediction audits
 - SHAP global explainability
 - LIME local explainability
-- Poster-ready data visualization with Matplotlib
+- Data visualizations with matplotlib
 
 The modeling workflow compares prediction patterns across two models: one trained with sex included and one trained with sex removed. This allows the project to examine whether removing a protected attribute eliminates group-patterned differences, or whether other variables may still act as proxies for social and labor-market structures.
 
@@ -159,7 +159,7 @@ pip install -r requirements.txt
 02_model_training_and_group_audit.ipynb
 03_shap_explainability.ipynb
 04_lime_local_explanations.ipynb
-05_poster_visualizations.ipynb
+05_visualizations.ipynb
 ```
 
 The figures will be saved to the `figures/` folder.
