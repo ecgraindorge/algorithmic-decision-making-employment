@@ -3,7 +3,7 @@
 
 This repository explores how predictive employment models can reproduce group-patterned differences in employment outcomes. Using American Community Survey (ACS) Public Use Microdata Sample (PUMS) person-level data, the project trains employment prediction models and uses group audits, SHAP, and LIME to examine how model predictions are shaped by demographic, educational, household, disability-related, and service-related variables.
 
-The project is designed as both a technical analysis and a public-facing research artifact. It supports a conference poster on biased algorithmic decision-making in AI-powered hiring and demonstrates how explainable AI tools can make model behavior more visible without assuming that explainability alone solves fairness concerns.
+The project is designed as both a technical analysis and a public-facing research artifact. It supports a conference presentation on biased algorithmic decision-making in AI-powered hiring and demonstrates how explainable AI tools can make model behavior more visible without assuming that explainability alone solves fairness concerns.
 
 ---
 
