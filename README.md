@@ -219,4 +219,4 @@ This project approaches algorithmic decision-making as a sociotechnical issue. M
 
 Dataset: American Community Survey Public Use Microdata Sample (ACS PUMS), U.S. Census Bureau.
 
-This repository was created to support a conference poster and research project on biased algorithmic decision-making in AI-powered hiring.
+This repository was created to support a conference presentation (International Leadership Association, October 2026)  and research project on biased algorithmic decision-making in AI-powered hiring.
