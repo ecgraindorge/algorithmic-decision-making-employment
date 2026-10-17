@@ -116,6 +116,35 @@ The modeling workflow compares prediction patterns across two models: one traine
 
 ---
 
+## Intersectional Audit
+
+Model A (includes sex) passes the four-fifths rule when audited by sex alone: the female/male predicted employment ratio is **0.948** (0.984 for Model B, which excludes sex). Auditing by sex × race tells a different story.
+
+The table below uses the Model A test set (n = 12,000), restricted to sex × race groups with at least 100 people. Following the four-fifths rule, each group's disparate impact (DI) ratio compares its predicted employment rate with that of the highest-rate group (Male, Other).
+
+| Sex × race group | n | Actual employment rate | Predicted employment rate | DI ratio (predicted) |
+|---|---:|---:|---:|---:|
+| Male, Other | 955 | 63.8% | 70.8% | 1.00 (reference) |
+| Male, Asian | 1,022 | 65.1% | 68.4% | 0.97 |
+| Female, Other | 952 | 54.6% | 67.1% | 0.95 |
+| Male, Two or more races | 974 | 62.9% | 66.8% | 0.94 |
+| Female, Asian | 1,230 | 56.9% | 66.3% | 0.94 |
+| Female, Two or more races | 967 | 57.4% | 63.3% | 0.89 |
+| Male, White | 2,563 | 59.1% | 57.7% | 0.81 |
+| **Male, Black** | 256 | 50.0% | 53.1% | **0.75** |
+| **Female, Black** | 258 | 46.1% | 52.7% | **0.74** |
+| **Female, White** | 2,575 | 50.0% | 52.7% | **0.74** |
+
+Key points:
+
+- **A passing overall ratio hides failing subgroups.** Three sex × race groups (White women, Black women, Black men) fall below the 0.80 threshold, and White men sit just above it.
+- **The model compresses the sex gap but amplifies race gaps.** The actual sex gap is 7.9 points, while the predicted gap is 3.3 points. Among men, the gap between the Other and White groups grows from 4.6 points (actual) to 13.1 points (predicted).
+- **Black women have the lowest actual employment rate** (46.1%). Compared with the highest actual-rate group (Male, Asian, 65.1%), their ratio is about 0.71 before any modeling.
+
+Caveats: The Black subgroups are small (n ≈ 256), so their rates carry a margin of error of roughly ±6 percentage points. Results come from a single train/test split. Running `02_model_training_and_group_audit.ipynb` reproduces this table and produces the same audit for Model B.
+
+---
+
 ## Key Takeaways
 
 - Predictive models can learn patterns embedded in historical labor-market data.
