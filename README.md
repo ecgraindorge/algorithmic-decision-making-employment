@@ -120,28 +120,29 @@ The modeling workflow compares prediction patterns across two models: one traine
 
 Model A (includes sex) passes the four-fifths rule when audited by sex alone: the female/male predicted employment ratio is **0.948** (0.984 for Model B, which excludes sex). Auditing by sex × race tells a different story.
 
-The table below uses the Model A test set (n = 12,000), restricted to sex × race groups with at least 100 people. Following the four-fifths rule, each group's disparate impact (DI) ratio compares its predicted employment rate with that of the highest-rate group (Male, Other).
+The table below uses the test set (n = 12,000), restricted to sex × race groups with at least 100 people. Both models use the same train/test split. Following the four-fifths rule, each group's disparate impact (DI) ratio compares its predicted employment rate with that of the highest-rate group, which is Male, Other for both models. Ratios below 0.80 are in bold.
 
-| Sex × race group | n | Actual employment rate | Predicted employment rate | DI ratio (predicted) |
-|---|---:|---:|---:|---:|
-| Male, Other | 955 | 63.8% | 70.8% | 1.00 (reference) |
-| Male, Asian | 1,022 | 65.1% | 68.4% | 0.97 |
-| Female, Other | 952 | 54.6% | 67.1% | 0.95 |
-| Male, Two or more races | 974 | 62.9% | 66.8% | 0.94 |
-| Female, Asian | 1,230 | 56.9% | 66.3% | 0.94 |
-| Female, Two or more races | 967 | 57.4% | 63.3% | 0.89 |
-| Male, White | 2,563 | 59.1% | 57.7% | 0.81 |
-| **Male, Black** | 256 | 50.0% | 53.1% | **0.75** |
-| **Female, Black** | 258 | 46.1% | 52.7% | **0.74** |
-| **Female, White** | 2,575 | 50.0% | 52.7% | **0.74** |
+| Sex × race group | n | Actual rate | Model A predicted | Model A DI | Model B predicted | Model B DI |
+|---|---:|---:|---:|---:|---:|---:|
+| Male, Other | 955 | 63.8% | 70.8% | 1.00 | 70.6% | 1.00 |
+| Male, Asian | 1,022 | 65.1% | 68.4% | 0.97 | 69.7% | 0.99 |
+| Female, Other | 952 | 54.6% | 67.1% | 0.95 | 70.4% | 1.00 |
+| Male, Two or more races | 974 | 62.9% | 66.8% | 0.94 | 68.1% | 0.96 |
+| Female, Asian | 1,230 | 56.9% | 66.3% | 0.94 | 68.0% | 0.96 |
+| Female, Two or more races | 967 | 57.4% | 63.3% | 0.89 | 66.7% | 0.95 |
+| Male, White | 2,563 | 59.1% | 57.7% | 0.81 | 57.9% | 0.82 |
+| Male, Black | 256 | 50.0% | 53.1% | **0.75** | 52.3% | **0.74** |
+| Female, Black | 258 | 46.1% | 52.7% | **0.74** | 54.3% | **0.77** |
+| Female, White | 2,575 | 50.0% | 52.7% | **0.74** | 55.6% | **0.79** |
 
 Key points:
 
-- **A passing overall ratio hides failing subgroups.** Three sex × race groups (White women, Black women, Black men) fall below the 0.80 threshold, and White men sit just above it.
+- **A passing overall ratio hides failing subgroups.** Three sex × race groups (White women, Black women, Black men) fall below the 0.80 threshold in Model A, and White men sit just above it.
+- **Removing sex does not fix it.** In Model B, the same three groups remain below 0.80. Removing sex raises predicted rates for women, but Black men fall slightly further (0.75 to 0.74). This is consistent with other variables acting as proxies for sex- and race-linked patterns.
 - **The model compresses the sex gap but amplifies race gaps.** The actual sex gap is 7.9 points, while the predicted gap is 3.3 points. Among men, the gap between the Other and White groups grows from 4.6 points (actual) to 13.1 points (predicted).
 - **Black women have the lowest actual employment rate** (46.1%). Compared with the highest actual-rate group (Male, Asian, 65.1%), their ratio is about 0.71 before any modeling.
 
-Caveats: The Black subgroups are small (n ≈ 256), so their rates carry a margin of error of roughly ±6 percentage points. Results come from a single train/test split. Running `02_model_training_and_group_audit.ipynb` reproduces this table and produces the same audit for Model B.
+Caveats: The Black subgroups are small (n ≈ 256), so their rates carry a margin of error of roughly ±6 percentage points. Results come from a single train/test split. Running `02_model_training_and_group_audit.ipynb` reproduces this table (sections 14 and 20).
 
 ---
 
