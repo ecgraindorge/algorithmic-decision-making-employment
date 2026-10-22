@@ -231,7 +231,7 @@ This project should be interpreted as a research and teaching demonstration rath
 
 Important limitations include:
 
-- The data come from ACS labor-market survey records, not actual hiring or applicant data.
+- The data come from ACS labor-market survey records serving as a proxy, not actual hiring or applicant data.
 - The analysis uses binary sex categories available in the dataset, which does not fully represent gender identity.
 - Prediction gaps should not be interpreted as causal evidence of discrimination.
 - Explainability methods show how models use features, but they do not determine whether a system is fair.
